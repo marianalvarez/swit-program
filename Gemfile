@@ -41,6 +41,8 @@ gem 'spring',        group: :development
 # Use haml
 gem 'haml-rails'
 
+# Use gem socialization
+gem 'socialization'
 # Use foundation
 gem 'foundation-rails'
 

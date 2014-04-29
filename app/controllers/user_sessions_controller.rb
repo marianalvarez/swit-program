@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
     #raise @user.to_yaml
     if @user
       session[:username] = @user.username
-      redirect_back_or_to(:users, notice: 'Login successful')
+      redirect_to articles_path
     else
       redirect_to login_path
     end

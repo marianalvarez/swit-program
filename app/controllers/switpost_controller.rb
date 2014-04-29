@@ -2,8 +2,12 @@ class SwitpostController < ApplicationController
   def new
   end
 
+  def index
+  @switpost = Switpost.all
+  end
+
   def show
-  @article = Switpost.find(params[:id])
+  @switpost = Switpost.find(params[:id])
   end
  
 
