@@ -1,6 +1,10 @@
-<h1>Listing Articles</h1>
+
+
 <%= link_to 'New article', new_article_path %>
+<h1><% @current_username %></h1>
+
 <%= render 'form' %>
+
 <table>
   <tr>
     <th>Title</th>
@@ -12,15 +16,76 @@
   <tr>
     <td><%= article.title %></td>
     <td><%= article.text %></td>
-    <td><%= link_to 'Sweet'%></td>
+    <td>
+          <% @sweet= Sweet.new%>
+
+<%= form_for([article, @sweet], :html => {:class => 'sweet_form'}) do |f| %>
+  <% if @sweet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sweet.errors.count, "error") %> prohibited this sweet from being saved:</h2>
+
+      <ul>
+      <% @sweet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <input id="sweet_article_id" name="sweet[article_id]" type="hidden" value="<%= @article.id%>" />
+ 
+ 
+   
+     <input name="commit" type="submit" class= "sweet"value="" />
+
+<% end %>
+
+<%= link_to pluralize(article.sweets.count.to_s, "sweet"), article_sweets_path(article)  %>
+
+
+
+
+
+    </td>
+
+
+    <td>
+          <% @sour= Sour.new%>
+
+<%= form_for([article, @sour], :html => {:class => 'sour_form'}) do |f| %>
+  <% if @sour.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sour.errors.count, "error") %> prohibited this sour from being saved:</h2>
+
+      <ul>
+      <% @sour.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <input id="sour_article_id" name="sour[article_id]" type="hidden" value="<%= @article.id%>" />
+ 
+ 
+   
+     <input name="commit" type="submit" class= "sour"value="" />
+
+<% end %>
+
+<%= link_to pluralize(article.sours.count.to_s, "sour"), article_sours_path(article)  %>
+
+    </td>
+
     <td><%= link_to 'Sour'%></td>
     <td><%= link_to 'Show', article_path(article) %></td>
     <td><%= link_to 'Edit', edit_article_path(article) %></td>
     <td><%= link_to 'Destroy', article_path(article),
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <td>
-      <%=render article.comments %></td>
-    <td><%= form_for([article, article.comments.build]) do |f| %>
+      <%=render :partial => article.comments %>
+    </td>
+    <td><%= form_for([article, article.comments.build], :remote =>true )  do |f| %>
   <p>
     <%= f.label :commenter %><br>
     <%= f.text_field :commenter %>
@@ -37,3 +102,4 @@
    </tr>
 <% end %>
 </table>
+

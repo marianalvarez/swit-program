@@ -1,8 +1,9 @@
 class Article < ActiveRecord::Base
 	belongs_to :user
 	 has_many :comments, dependent: :destroy
-	 has_many :sweet
-	 has_many :sour
+	 has_many :sweets
+	 has_many :sours
+	 
 	 validates :title, presence: true,
                     length: { minimum: 5 }
 

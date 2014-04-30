@@ -9,20 +9,46 @@
   </head>
   <body>
 
-  <div id="nav">
-    <% if current_user %>
-      <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
-      <%= link_to "Logout", :logout, method: :post %>
-    <% else %>
-      <%= link_to "Register", new_user_path %> |
-      <%= link_to "Login", :login %></div>
-    <% end %>
-  </div>
-  <div>
-    <p id="notice"><%= flash[:notice] %></p>
-    <p id="alert"><%= flash[:alert] %></p>
-  </div>
-  <%= yield %>
+  <header>
+        <div class="wrapper">
+            <div id="move"><h1>Switter</h1></div>
+            <% if current_user %>
+                <div id="button_user">
+                Welcome <%= current_user.username %>! |
+                <%= link_to "My Profile", current_user %> | <%= link_to "Log Out", sessions_destroy_path %>
+              </div>
+            <% else %>
+                <%= form_tag sessions_create_path do %>
 
+                   <div id="button_log" class="row">
+                      <div class="small-12">
+                        <div class="row">
+                         
+                          <div class="small-3 columns">
+                            <%= text_field_tag :username, nil, placeholder: "Username" %> 
+                          </div>
+                          
+                          <div class="small-3 columns">
+                            <%= password_field_tag :password, nil,  placeholder: "Password" %>
+                          </div>
+                          <%= submit_tag "Log In", :class => 'button tiny' %>
+                        </div>
+                      </div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+    </header>
+
+    <div id="content">
+        <div class="wrapper">
+            <% flash.each do |username, msg| %>
+                <%= content_tag :div, msg, class: "flash #{username}" %>
+            <% end %>
+            <%= yield %>
+        </div>
+    </div>
   </body>
 </html>
+
+

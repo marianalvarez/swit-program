@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+
+  get 'sessions/login'
+
+  get 'sessions/home'
+
+  get 'sessions/profile'
+
+  get 'sessions/setting'
+get "sessions/new"
+get "sessions/create"
+get "sessions/destroy"
+post "sessions/create"
+  get 'sessions/login_attempt'
+  post 'sessions/login_attempt'
+  
+
   get 'switpost/new'
   post 'switpost/new'
   get 'post/index'
@@ -6,17 +22,20 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   get 'users/index'
-  root :to => 'user_sessions#new'
+  get 'users/new'
+  root to: 'users#new'
+
 resources :user_sessions
 resources :users
 resources :post
+
 resources :articles do
-  resources :comments
+  resources :comments, :users, :sweets, :sours
 end
 
-get 'login' => 'user_sessions#new', :as => :login
-post 'logout' => 'user_sessions#destroy', :as => :logout
-  
+
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

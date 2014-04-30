@@ -45,6 +45,6 @@ gem 'haml-rails'
 gem 'socialization'
 # Use foundation
 gem 'foundation-rails'
-
+gem 'bcrypt-ruby' 
 # Use sorcery
 gem 'sorcery'

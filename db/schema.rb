@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140429023657) do
+ActiveRecord::Schema.define(version: 20140430020845) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -31,13 +31,15 @@ ActiveRecord::Schema.define(version: 20140429023657) do
   add_index "comments", ["article_id"], name: "index_comments_on_article_id"
 
   create_table "sours", force: true do |t|
-    t.integer "sour"
+    t.string   "commenter"
+    t.integer  "article_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "sweets", force: true do |t|
-    t.integer "sweet"
+    t.string   "commenter"
+    t.integer  "article_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,11 +69,7 @@ ActiveRecord::Schema.define(version: 20140429023657) do
   add_index "switters", ["email"], name: "index_switters_on_email", unique: true
   add_index "switters", ["reset_password_token"], name: "index_switters_on_reset_password_token", unique: true
 
-  create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "encrypted_password"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+# Could not dump table "users" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
 end

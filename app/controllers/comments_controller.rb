@@ -2,7 +2,10 @@ class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)
-    redirect_to articles_path
+    respond_to do |format|
+      format.html { redirect_to @article}
+      format.js
+    end
   end
  
   def destroy

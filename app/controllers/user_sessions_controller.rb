@@ -15,7 +15,6 @@ class UserSessionsController < ApplicationController
     end
   end
 
- 
 
   def destroy
     logout
