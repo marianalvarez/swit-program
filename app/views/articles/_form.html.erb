@@ -17,7 +17,11 @@
  
   <p>
     <%= f.label :text %><br>
-    <%= f.text_area :text %>
+    
+    <%= f.text_area :text , :id => "txt", :maxlength => 140 %>
+
+<br>
+Characters: <span id="count"> 0</span>
   </p>
  
   <p>

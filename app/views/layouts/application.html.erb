@@ -6,8 +6,29 @@
       <%= stylesheet_link_tag    "application" %>
       <%= javascript_include_tag "application" %>
       <%= csrf_meta_tags %>
-  </head>
-  <body>
+  
+  <script>
+function go() {
+    var txt=document.getElementById("txt");
+    txt.onkeydown = countTxt;
+}
+function countTxt() {
+    var txt=document.getElementById("txt");
+    var count=document.getElementById("count");
+
+     // count the character not shown yet ;)
+    if(count.innerHTML<140)
+    {
+      count.innerHTML = txt.value.length+1;
+      
+    }
+}
+</script>
+
+</head>
+
+
+  <body onload="go()">
 
   <header>
         <div class="wrapper">
