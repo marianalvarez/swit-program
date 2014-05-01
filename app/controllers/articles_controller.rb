@@ -14,7 +14,7 @@ def edit
 end
 def index
   @article = Article.new
-  @articles = Article.all
+  @articles = Article.all.order('created_at desc')
 end
 def destroy
   @article = Article.find(params[:id])

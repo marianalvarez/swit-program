@@ -11,17 +11,27 @@
 function go() {
     var txt=document.getElementById("txt");
     txt.onkeydown = countTxt;
+    txt.onkeyup = countTxt1;
 }
 function countTxt() {
     var txt=document.getElementById("txt");
     var count=document.getElementById("count");
 
      // count the character not shown yet ;)
-    if(count.innerHTML<140)
-    {
+   
       count.innerHTML = txt.value.length+1;
       
-    }
+    
+}
+function countTxt1() {
+    var txt=document.getElementById("txt");
+    var count=document.getElementById("count");
+
+     // count the character not shown yet ;)
+   
+      count.innerHTML = txt.value.length;
+      
+    
 }
 </script>
 

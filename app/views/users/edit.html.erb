@@ -10,10 +10,9 @@
     </ul>
   </div>
   <% end %>
-  <div id="article">
-     <div class="small-4 columns">
   <p>
-    <%= f.hidden_field :title, :value => current_user.username %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
   </p>
  
   <p>
@@ -28,6 +27,4 @@ Characters: <span id="count"> 0</span>
   <p>
     <%= f.submit %>
   </p>
-</div>
-</div>
 <% end %>

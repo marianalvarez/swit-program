@@ -18,7 +18,7 @@ def index
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to aricles_path, notice: "Thank you for signing up for Ribbit"
+      redirect_to articles_path, notice: "Thank you for signing up for Ribbit"
     else
       render 'new'
     end
