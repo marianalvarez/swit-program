@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Switter</title>
       <%= stylesheet_link_tag    "application" %>
-      <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' %>
-<%= javascript_include_tag 'rails' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
   <script>
 function go() {
     var txt=document.getElementById("txt");

@@ -8,5 +8,14 @@ class User < ActiveRecord::Base
  has_many :articles
  
 
-
+protected
+  
+  def password_required?
+    logger.warn('checking if the password is required: '+ updating_password)
+    if updating_password.to_i > 0
+      true
+    else
+      false
+    end
+  end
 end

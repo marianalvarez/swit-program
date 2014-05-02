@@ -1,16 +1,26 @@
-<br/>
-<br/><br/>
-<br/>
-<br/>
-hello
-<% form_for(:user, :url => users_edit_path) do |f| %>
-<%= f.hidden_field :reset_password_token %>
+<div id="body1">
+	<br/>
+	<br/>
+	<br/>
+	<br/>
 
-  <div><%= f.label :password, "New password" %><br />
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %></div>
+	<br/>
+	<br/>
+	<div id="pass"><%= image_tag("password.jpg", :alt => "rss feed") %> </div>
+<div id="changePassword">
 
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+<br/>
+<%= form_for(@user) do |f| %>
+     
+      <%= f.label :Username %>
+      <%= f.text_field :username %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
 
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
+      <%= f.label :password_confirmation, "Confirm Password" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Save changes", class: "button tiny push-4" %>
+    <% end %>
+   </div>
+  </div>

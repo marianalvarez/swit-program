@@ -12,8 +12,22 @@ def index
     end
   end
 
+
+def update
+    respond_to do |format|
+      @user = User.find params[:id]
+      if @user.update(user_params)
+        format.html { redirect_to articles_path, notice: 'Password was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def edit
-    
+    @user = User.find(params[:id])
   end
   def create
 

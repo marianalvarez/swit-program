@@ -6,6 +6,16 @@ header{
     position: fixed;
     z-index: 1000;
 }
+#pass{
+    margin-left: 34em;
+}
+#changePassword{
+  margin: 0 auto;
+  width: 20em;
+  height: 18em;
+  background-color: #efefef;
+
+}
 #content{
   position: absolute;
 }
@@ -98,6 +108,16 @@ margin-bottom: 2em;
   font-size: 20px;
   padding-bottom: 10px;
 
+}
+#errors{
+  font-size: 10px;
+  color: red;
+  background-color: white;
+  margin-left: 0em;
+  margin-top: -5em;
+  width: 40em;
+  height: 10em;
+  margin-bottom: 1em;
 }
 #sign_up{
   
