@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  
+  get 'doortags/related'
   get 'sessions/login'
 
   get 'sessions/home'
@@ -14,7 +16,7 @@ post "sessions/create"
   get 'sessions/login_attempt'
   post 'sessions/login_attempt'
   
-
+get 'users/edit'
   get 'switpost/new'
   post 'switpost/new'
   get 'post/index'
@@ -30,11 +32,11 @@ resources :users
 resources :post
 
 resources :articles do
-  resources :comments, :users, :sweets, :sours
+  resources :comments, :users, :sweets, :sours, :doortags
 end
 
 
-
+get '/door_tag' => 'doortags#related'
 
 
   # Example of regular route:

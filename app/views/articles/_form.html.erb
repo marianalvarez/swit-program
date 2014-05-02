@@ -11,23 +11,24 @@
   </div>
   <% end %>
   <div id="article">
-     <div class="small-4 columns">
+     <div class="small-12 columns">
   <p>
     <%= f.hidden_field :title, :value => current_user.username %>
   </p>
  
-  <p>
-    <%= f.label :text %><br>
-    
+    <div id="create_swit">
+    Create a Swit
+  </div>
+      <p>
     <%= f.text_area :text , :id => "txt", :maxlength => 140 %>
+ Characters remaining: <span id="count"> 140</span>
+  </p>
 
-<br>
-Characters: <span id="count"> 0</span>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
+  
+ <div class=""><%= f.submit "Submit", :class => 'button tiny push-7' %> </div>
+    
 </div>
 </div>
 <% end %>
+
+

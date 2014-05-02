@@ -8,6 +8,7 @@ def new
 def show
 
   @article = Article.find(params[:id])
+  
 end
 def edit
 	@article = Article.find(params[:id])
@@ -26,7 +27,17 @@ def create
   @article = Article.new(article_params)
  
   if @article.save
+    @tags = @article.text.scan(/\{[^}]*\}/)
+    @tags.each do |doortag|
+        
+        doortag=doortag.gsub(/\{/,"")
+        doortag=doortag.gsub(/\}/,"")
+        @doortag = Doortag.create(article_id: @article.id, tag: doortag)
+        @doortag.save
+ end
+ 
     redirect_to articles_path
+
   else
     render 'new'
   end
