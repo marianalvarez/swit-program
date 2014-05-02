@@ -3,17 +3,6 @@
 
 <%= render 'form' %>
 
-<% for article in @articles %>
- <br/>
-<% text = article.text %>
-<% article.text.scan(/{(.*?)}/) do |f| %>
-
-              <% text = text.gsub('{' + f[0] + '}', "<a data-method=\"get\" href=\"\/door_tag\?tag=" + f[0] + "\">\{" + f[0] + "\}</a>").html_safe  %>
-             
-
-<% end %>
-<%= text %>
-<% end %>
 
 <div id="swits">
 
